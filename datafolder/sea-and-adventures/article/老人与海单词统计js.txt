@@ -1,0 +1,320 @@
+﻿demo:http://echarts.baidu.com/demo.html#pie-simple
+rule:http://echarts.baidu.com/option.html#series-pie.label.normal.formatter
+
+1.单词柱状图
+
+option = {
+    title : {
+        text: '老人与海单词统计',
+        subtext: 'Shrek'
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:[{name:'去重前单词数',textStyle:{fontSize:16,fontWeight:'bold'}},
+                {name:'去重后单词数',textStyle:{fontSize:16,fontWeight:'bold'}}]
+    },
+    toolbox: {
+        show : false,
+        feature : {
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {   
+            name : '单词长度',
+            nameTextStyle : {fontSize : 16, fontWeight : 'bold'},
+            axisLabel : {textStyle : {fontSize : 14, fontWeight : 'bold'}},
+            type : 'category',
+            data : ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15']
+        }
+    ],
+    yAxis : [
+        {
+            name : '次数',
+            nameTextStyle : {fontSize : 16, fontWeight : 'bold'},
+            axisLabel : {textStyle : {fontSize : 14, fontWeight : 'bold'}},
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'去重前单词数',
+            type:'bar',
+            data:[907,4700,8364,5872,2841,1607,1366,524,307,167,61,35,12,12,5],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            }
+        },
+        {
+            name:'去重后单词数',
+            type:'bar',
+            data:[3,35,154,443,490,442,366,237,133,112,47,30,11,11,2],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            }
+        }
+    ]
+};
+
+
+
+2.单词饼图
+
+option = {
+    title : {
+        text: '老人与海不同长度单词占比(未去重)',
+        textStyle : {fontWeight:'bold',fontSize:20},
+        subtext : '仅供参考-Shrek',
+        subtextStyle : {fontWeight:'bold',fontSize:18},
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    series : [
+        {
+            name: '词长',
+            type: 'pie',
+            radius : '35%',
+            center: ['50%', '35%'],
+            label : {normal : {formatter : "{b} (占比：{d}%)",
+                    textStyle : {fontWeight:'bold',fontSize:17}
+            }},
+            data:[
+                {value:907, name:'词长1'},
+                {value:4700, name:'词长2'},
+                {value:8364, name:'词长3'},
+                {value:5872, name:'词长4'},
+                {value:2841, name:'词长5'},
+                {value:1607, name:'词长6'},
+                {value:1366, name:'词长7'},
+                {value:524, name:'词长8'},
+                {value:307, name:'词长9'},
+                {value:167, name:'词长10'},
+                {value:61, name:'词长11'},
+                {value:35, name:'词长12'},
+                {value:12, name:'词长13'},
+                {value:12, name:'词长14'},
+                {value:5, name:'词长15'}
+            ],
+            itemStyle: {
+                normal: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+
+
+3.句子柱状图
+
+option = {
+    color: ['#3398DB'],
+    title : {
+        text: '老人与海句子统计'
+    },
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    legend: {
+        data:[{name:'句子数',textStyle:{fontSize:16,fontWeight:'bold'}}]
+    },
+    toolbox: {
+        show : false,
+        feature : {
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+
+    xAxis : [
+        {
+            name : '句子单词数',
+            nameTextStyle : {fontSize : 14, fontWeight : 'bold'},
+            axisLabel : {textStyle : {fontSize : 14, fontWeight : 'bold'}},
+            type : 'category',
+            data : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 57, 59, 60, 61, 62, 63, 68, 69],
+            axisTick: {
+                alignWithLabel: true
+            }
+        }
+    ],
+    yAxis : [
+        {   
+            name : '次数',
+            nameTextStyle : {fontSize : 16, fontWeight : 'bold'},
+            axisLabel : {textStyle : {fontSize : 14, fontWeight : 'bold'}},
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'直接访问',
+            type:'bar',
+            barWidth: '60%',
+            data:[20, 30, 60, 102, 118, 140, 121, 102, 105, 104, 85, 90, 68, 76, 68, 56, 56, 54, 34, 45, 37, 37, 37, 23, 23, 22, 12, 11, 20, 16, 13, 7, 13, 10, 12, 10, 11, 7, 8, 1, 5, 8, 2, 4, 4, 2, 3, 2, 4, 2, 3, 1, 1, 2, 1, 1, 1, 1, 2, 2, 1, 1, 1],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'}
+                ]
+            }
+        }
+    ]
+};
+
+
+4.雅思单词饼状图 未去重
+
+option = {
+    title : {
+        text: '雅思阅读不同长度单词占比(未去重)',
+        textStyle : {fontWeight:'bold',fontSize:20},
+        subtext : '仅供参考-Shrek',
+        subtextStyle : {fontWeight:'bold',fontSize:18},
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    series : [
+        {
+            name: '词长',
+            type: 'pie',
+            radius : '35%',
+            center: ['50%', '35%'],
+            label : {normal : {formatter : "{b} (占比：{d}%)",
+                    textStyle : {fontWeight:'bold',fontSize:17}
+            }},
+            data:[
+                {value:1341, name:'词长1'},
+				{value:9276, name:'词长2'},
+				{value:9904, name:'词长3'},
+				{value:8235, name:'词长4'},
+				{value:6247, name:'词长5'},
+				{value:4631, name:'词长6'},
+				{value:4471, name:'词长7'},
+				{value:3378, name:'词长8'},
+				{value:2655, name:'词长9'},
+				{value:1950, name:'词长10'},
+				{value:1188, name:'词长11'},
+				{value:639, name:'词长12'},
+				{value:370, name:'词长13'},
+				{value:155, name:'词长14'},
+				{value:92, name:'词长15'}
+            ],
+            itemStyle: {
+                normal: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+
+5.老人与海权重单词柱状图
+
+
+option = {
+    title: {
+        text: '老人与海高权重词',
+        subtext: '前40个'
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    legend: {
+        data: ['权重']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'value',
+        axisLabel : {textStyle : {fontSize : 14, fontWeight : 'bold'}},
+        boundaryGap: [0, 0.01]
+    },
+    yAxis: {
+        type: 'category',
+        axisLabel : {textStyle : {fontSize : 14, fontWeight : 'bold'}},
+        inverse : true,
+        data: ['fish','shark','skiff','boat','dolphin','harpoon','fisherman','sun','big','sardine','oar','sea','hook','bait','sail','aloud','cramp','coil','bow','shoulder','swim','jump','tail','circle','hit','slowly','maybe','stern','start','tiller','turtle','mast','breeze','fin','ocean','knife','slant','club','dream','jaw']
+    },
+    series: [
+        {
+            name: '权重',
+            type: 'bar',
+            data: [
+				  0.71560031809593971
+				, 0.29780565710827844
+				, 0.25796374769221325
+				, 0.12474176069326046
+				, 0.12370388833728489
+				, 0.11873234101863225
+				, 0.10450058285237164
+				, 0.098103042371304863
+				, 0.095461199630934218
+				, 0.094985872814905795
+				, 0.094725156108981315
+				, 0.093837692702987252
+				, 0.090584895408833771
+				, 0.085964571906930895
+				, 0.079162946035408854
+				, 0.077981812270305997
+				, 0.07704514153316086
+				, 0.075243910058303637
+				, 0.070378269527240439
+				, 0.070378269527240439
+				, 0.069760602162385901
+				, 0.069270802371461118
+				, 0.066189505673974941
+				, 0.066112919858922842
+				, 0.064613501595396389
+				, 0.062864692439883504
+				, 0.061306044803292922
+				, 0.058613755852774792
+				, 0.055701294478789999
+				, 0.054979505927682172
+				, 0.054979505927682172
+				, 0.05485277692926209
+				, 0.054347635558024771
+				, 0.05225029142618582
+				, 0.049729999424142059
+				, 0.049017139141335202
+				, 0.047083142048042759
+				, 0.046804705340368999
+				, 0.046789087362183596
+				, 0.044238116902140245
+				]
+        }
+    ]
+};

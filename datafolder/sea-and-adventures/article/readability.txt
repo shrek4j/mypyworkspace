@@ -1,0 +1,9 @@
+the old man and the sea
+ARI:  3.69412436754
+FleschReadingEase:  98.3638
+FleschKincaidGradeLevel:  3.0175
+GunningFogIndex:  6.9366
+SMOGIndex:  6.75820270758
+ColemanLiauIndex:  4.6797
+LIX:  23.5366630488
+RIX:  1.33107403545

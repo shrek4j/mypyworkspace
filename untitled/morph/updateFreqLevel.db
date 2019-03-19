@@ -1,0 +1,14 @@
+  0 - 2 - 5 - 8 - 11 - 14
+  5   4   3   2    1
+
+UPDATE wiki_word SET freq_level = 5  WHERE log_freq<2 AND is_similar = 1;
+UPDATE wiki_word SET freq_level = 4  WHERE log_freq<5 AND log_freq>=2 AND is_similar = 1;
+UPDATE wiki_word SET freq_level = 3  WHERE log_freq<8 AND log_freq>=5 AND is_similar = 1;
+UPDATE wiki_word SET freq_level = 2  WHERE log_freq<11 AND log_freq>=8 AND is_similar = 1;
+UPDATE wiki_word SET freq_level = 1  WHERE log_freq>=11 AND is_similar = 1;
+
+SELECT COUNT(*) FROM wiki_word WHERE freq_level = 1;   135
+SELECT COUNT(*) FROM wiki_word WHERE freq_level = 2;   1273
+SELECT COUNT(*) FROM wiki_word WHERE freq_level = 3;   2496
+SELECT COUNT(*) FROM wiki_word WHERE freq_level = 4;   1315
+SELECT COUNT(*) FROM wiki_word WHERE freq_level = 5;   6193
